@@ -2,3 +2,6 @@
 #favLanguageRadioButton , #options , #submit , #neededMoney{
     display: none ;
 }
+:root{
+    color-scheme: light dark ;
+}
