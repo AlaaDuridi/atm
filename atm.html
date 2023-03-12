@@ -1,84 +1,69 @@
- <!DOCTYPE html>
-<html > 
-    <head> 
-
-        <link rel ="stylesheet"  href = "../CSS files/atm.css">
-        <script src="../JavaScript files/atm.js" ></script>
-    </head>
-
-<body >
-
-    
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../CSS files/atm.css">
+    <script src="../JavaScript files/atm.js"></script>
+    <meta name="color-scheme" content="light dark">
+</head>
+<body>
     <!--entry part -->
-<div id = "entry">
-<center>
-    <h1 > <center> Wlecome</center>  </h1>
+    <form autocomplete="off" action="#" method="get">
+    <div id="entry">
+        <center>
+            <h1>
+                <center> Wlecome</center>
+            </h1>
+            <form id="entryForm">
+                <label>4-digits pin number </label>
+                <input type="text" placeholder="pin ..." id="pin"
+                 maxlength = "4" pattern="[0-9]{4}" required onkeypress="return /[0-9]/i.test(event.key)">
+                <label> password</label>
+                <input type="password" placeholder="password ..." id="pass"
+                maxlength = "4" pattern="[0-9]{4}" required onkeypress="return /[0-9]/i.test(event.key)">
+                <button type="button" id="loginPin" onclick="enterPin()"> Next </button>
+            </form>
+        </center>
+    </div>
+    <!--language part -->
+    <div id="favLanguageRadioButton">
+        <center>
+            <p>Choose your favorate language </p>
+           
+                <input type="radio" id="arabic" name="fav_language" value="arabic"  autocomplete="off" >
+                <label for="arabic">Arabic</label><br>
+                <input type="radio" id="english" name="fav_language" value="english" autocomplete="off"  >
+                <label for="english">English</label><br>
 
-    <form id = "entryForm"> 
-        <label>4-digits pin number </label>
-        <input type="text" placeholder="pin ..." id="pin">
-
-        <label> password</label>
-        <input type ="password" placeholder="password ..."  id = "pass">
-    
-    <button type ="button" id ="loginPin" onclick="enterPin()"> Next </button>
+        </center>
+    </div>
+    <div id="options">
+        <center>
+            <button id="withdraw" onclick="withdraw()">Withdraw</button>
+            <button id="diposit" onclick="diposit()">Diposit</button>
+            <button id="balance" onclick="balance()">Balance</button>
+            <input type="text" id="neededMoney" required pattern="[0-9]*">
+            <button type="button" onclick="dosth()" id="submit"> submit </button>
+        </center>
+    </div>
     </form>
-</center>
-</div>
-
-<!--language part -->
-<div id = "favLanguageRadioButton"> 
-    <center>
-<p>Choose your favorate  language </p>
-
-<form>
-  <input type="radio" id="arabic" name="fav_language" value="arabic"  >
-  <label for="arabic">Arabic</label><br>
-  <input type="radio" id="english" name="fav_language" value="english" checked="checked"  > 
-  <label for="english">English</label><br>
-</form> </center>
-</div>
-
-<script>
-    document.getElementById("favLanguageRadioButton").addEventListener("change", function(e) {
-        if(document.querySelector('input[name="fav_language"]:checked').value === "arabic"){
-            
- 
-    document.getElementById('withdraw').innerHTML=  "سحب"; 
-    document.getElementById('diposit').innerHTML= "إيداع"; 
-    document.getElementById('balance').innerHTML= "كشف حساب"  ;
-}
-else {
-    document.getElementById('withdraw').innerHTML=  "withdraw"; 
-    document.getElementById('diposit').innerHTML= "diposit"; 
-    document.getElementById('balance').innerHTML= "balance" ;
-}
-//  document.getElementById('favLanguageRadioButton').style.display="none" ; 
-document.getElementById('options').style.display="block" ; 
-
-// document.getElementById('neededMoney').style.display="none" ; 
-});
-
-</script>
-<!--options part -->
-
-
-<div id ="options" > 
-<center>
-
-    <button id ="withdraw" onclick="withdraw()">Withdraw</button>
-    <button id ="diposit" onclick="diposit()" >Diposit</button>
-    <button id ="balance" onclick="balance()">Balance</button>
     
-
-    <input type ="text"  id ="neededMoney" > 
-    <button type = "button" onclick="withdrawgo()"  id = "submit"> submit </button>
-
-  
-
-</center>
-
-</div>
-   
+    <!--js script for the radio button -->
+    <script>
+        document.getElementById("favLanguageRadioButton").addEventListener("change" , function (e) {
+          
+            if (document.querySelector('input[name="fav_language"]:checked').value === "arabic") {
+                document.getElementById('withdraw').innerHTML = "سحب";
+                document.getElementById('diposit').innerHTML = "إيداع";
+                document.getElementById('balance').innerHTML = "كشف حساب";
+            }
+            else {
+                document.getElementById('withdraw').innerHTML = "withdraw";
+                document.getElementById('diposit').innerHTML = "diposit";
+                document.getElementById('balance').innerHTML = "balance";
+            }
+            document.getElementById('options').style.display = "block";
+            document.getElementById('favLanguageRadioButton').style.display = "none";
+        });
+    </script>
 </body>
 </html>
